@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="gridGlow"></div>
+  </div>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>Neon Scientific</h1>
+          <p>Scientific Calculator • History • Keyboard</p>
+        </div>
+      </div>
+
+      <div class="toggles">
+        <button class="chip active" id="btnDeg" aria-pressed="true">DEG</button>
+        <button class="chip" id="btnRad" aria-pressed="false">RAD</button>
+        <button class="chip" id="btn2nd" aria-pressed="false">2nd</button>
+        <button class="chip" id="btnClearHistory" title="ล้างประวัติ">CLR-H</button>
+      </div>
+    </header>
+
+    <section class="calc">
+      <div class="screen">
+        <div class="mini">
+          <div class="miniLeft">
+            <span class="pill" id="modePill">DEG</span>
+            <span class="pill ghost" id="secondPill">2nd: OFF</span>
+          </div>
+          <div class="miniRight">
+            <span class="pill ghost" id="ansPill">Ans: 0</span>
+          </div>
+        </div>
+
+        <div class="expr" id="expr" aria-label="expression"></div>
+        <div class="resultRow">
+          <div class="cursor" id="cursor" aria-hidden="true"></div>
+          <div class="result" id="result" aria-label="result">0</div>
+        </div>
+        <div class="hint" id="hint">
+          เคล็ดลับ: ใช้คีย์บอร์ดได้ • Enter = = • Backspace = ลบ • Esc = AC
+        </div>
+      </div>
+
+      <div class="pad">
+        <!-- Row 1 -->
+        <button class="key danger" data-action="ac">AC</button>
+        <button class="key" data-action="del">DEL</button>
+        <button class="key" data-action="paren">( )</button>
+        <button class="key op" data-insert="÷">÷</button>
+
+        <!-- Row 2 -->
+        <button class="key fn" data-fn="sin">sin</button>
+        <button class="key fn" data-fn="cos">cos</button>
+        <button class="key fn" data-fn="tan">tan</button>
+        <button class="key op" data-insert="×">×</button>
+
+        <!-- Row 3 -->
+        <button class="key fn" data-fn="log">log</button>
+        <button class="key fn" data-fn="ln">ln</button>
+        <button class="key fn" data-fn="sqrt">√</button>
+        <button class="key op" data-insert="-">−</button>
+
+        <!-- Row 4 -->
+        <button class="key fn" data-fn="pow">xʸ</button>
+        <button class="key fn" data-fn="fact">x!</button>
+        <button class="key fn" data-fn="inv">1/x</button>
+        <button class="key op" data-insert="+">+</button>
+
+        <!-- Row 5 -->
+        <button class="key const" data-insert="π">π</button>
+        <button class="key const" data-insert="e">e</button>
+        <button class="key ghost" data-action="ans">Ans</button>
+        <button class="key ghost" data-action="sign">±</button>
+
+        <!-- Row 6 -->
+        <button class="key num" data-insert="7">7</button>
+        <button class="key num" data-insert="8">8</button>
+        <button class="key num" data-insert="9">9</button>
+        <button class="key op" data-insert="^">^</button>
+
+        <!-- Row 7 -->
+        <button class="key num" data-insert="4">4</button>
+        <button class="key num" data-insert="5">5</button>
+        <button class="key num" data-insert="6">6</button>
+        <button class="key op" data-insert="%">%</button>
+
+        <!-- Row 8 -->
+        <button class="key num" data-insert="1">1</button>
+        <button class="key num" data-insert="2">2</button>
+        <button class="key num" data-insert="3">3</button>
+        <button class="key op" data-insert=")">)</button>
+
+        <!-- Row 9 -->
+        <button class="key ghost" data-action="mc">MC</button>
+        <button class="key num" data-insert="0">0</button>
+        <button class="key num" data-insert=".">.</button>
+        <button class="key primary" data-action="eq">=</button>
+      </div>
+    </section>
+
+    <aside class="history">
+      <div class="historyHead">
+        <h2>History</h2>
+        <div class="historySub">คลิกเพื่อดึงกลับมาใช้ใหม่</div>
+      </div>
+      <div class="historyList" id="historyList"></div>
+    </aside>
+
+    <footer class="foot">
+      <div>รองรับ: (), ^, √, sin/cos/tan, log/ln, factorial, π, e, %, Ans, DEG/RAD</div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
